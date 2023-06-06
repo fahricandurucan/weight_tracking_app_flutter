@@ -15,7 +15,12 @@ class Controller extends GetxController{
 
   void addNewRecord(int weight,DateTime dateTime){
     var newRecord = Record(weight: weight, dateTime: dateTime);
+    print("************** ${newRecord.id}");
     recordList.add(newRecord);
+  }
+
+  void deleteRecord(){
+
   }
 
 
