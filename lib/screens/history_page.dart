@@ -29,7 +29,8 @@ class _HistoryPageState extends State<HistoryPage> {
               icon: Icon(Icons.favorite)),
         ],
       ),
-      body: Obx(() => c.recordList.length == 0 ? Center(child: Text("Lütfen Kilo Kaydınızı Giriniz"),) :
+      body: Obx(() => c.recordList.length == 0 ?
+      Center(child: Text("Lütfen Kilo Kaydınızı Giriniz",style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold),),) :
       Container(
         width: double.infinity,
         child: ListView(

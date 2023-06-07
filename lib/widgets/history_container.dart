@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:weight_tracking_app/controller.dart';
 
 import '../model/record_model.dart';
 
@@ -15,6 +17,9 @@ class HistoryContainer extends StatefulWidget {
 }
 
 class _HistoryContainerState extends State<HistoryContainer> {
+
+  final Controller controller = Get.find(); //daha onceden Get.put ile oluşturmuştuk find ile hafızadaki bunu bulur
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,7 +36,11 @@ class _HistoryContainerState extends State<HistoryContainer> {
           mainAxisSize: MainAxisSize.min,
           children: [
             IconButton(onPressed: (){}, icon: Icon(Icons.edit,)),
-            IconButton(onPressed: (){}, icon: Icon(Icons.delete,color: Colors.red,)),
+            IconButton(
+                onPressed: (){
+                  controller.deleteRecord(widget.record.id);
+                },
+                icon: Icon(Icons.delete,color: Colors.red,)),
           ],
         ),
       ),

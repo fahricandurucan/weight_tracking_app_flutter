@@ -19,8 +19,12 @@ class Controller extends GetxController{
     recordList.add(newRecord);
   }
 
-  void deleteRecord(){
-
+  void deleteRecord(String id){
+    for(int i = 0;i<recordList.length;i++){
+      if(recordList[i].id == id){
+        recordList.removeAt(i);
+      }
+    }
   }
 
 
