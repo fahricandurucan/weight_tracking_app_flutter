@@ -5,6 +5,8 @@ import 'model/record_model.dart';
 
 class Controller extends GetxController{
 
+  int weight = 0;
+
   var recordList = <Record>[
     // Record(weight: 70, dateTime: DateTime.now(),note: "fahrşcan"),
     // Record(weight: 80, dateTime: DateTime.now(),note: "fahrşcan"),

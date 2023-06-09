@@ -34,6 +34,7 @@ dependencies:
   animated_bottom_navigation_bar: ^1.2.0
   intl: ^0.18.1
   uuid: ^3.0.7
+  numberpicker: ^2.1.2
 
 
   # The following adds the Cupertino Icons font to your application.

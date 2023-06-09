@@ -2,6 +2,7 @@ import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.da
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:weight_tracking_app/screens/adding_page.dart';
 import 'package:weight_tracking_app/screens/graph_page.dart';
 import 'package:weight_tracking_app/screens/history_page.dart';
 
@@ -26,9 +27,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.green,
         child: Icon(Icons.add,size: 30,color: a == 3 ? Colors.yellow : Colors.white,),
         onPressed: (){
-          setState(() {
-            a = 3;
-          });
+          Get.to(AddingPage());
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
