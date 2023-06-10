@@ -14,7 +14,6 @@ class HistoryPage extends StatefulWidget {
 class _HistoryPageState extends State<HistoryPage> {
   final Controller c = Get.put(Controller());
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +23,7 @@ class _HistoryPageState extends State<HistoryPage> {
         actions: [
           IconButton(
               onPressed: (){
-                c.addNewRecord(100,DateTime.now());
+                c.addNewRecord(5,DateTime.now());
               },
               icon: Icon(Icons.favorite)),
         ],

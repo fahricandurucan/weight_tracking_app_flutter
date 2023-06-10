@@ -15,6 +15,7 @@ class Controller extends GetxController{
 
   ].obs;
 
+
   void addNewRecord(int weight,DateTime dateTime){
     var newRecord = Record(weight: weight, dateTime: dateTime);
     print("************** ${newRecord.id}");
