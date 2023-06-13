@@ -24,7 +24,7 @@ class _GraphPageState extends State<GraphPage> {
         title: Text("GRAPH"),
         centerTitle: true,
       ),
-      body: Container(
+      body: controller.recordList.isEmpty ? Center(child: Text("Henüz bir kilo kaydı girilmediği için graph yok"),) :Container(
         margin: EdgeInsets.all(8),
         height: double.infinity,
         width: double.infinity,

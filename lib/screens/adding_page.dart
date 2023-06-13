@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:numberpicker/numberpicker.dart';
 
 import '../controller.dart';
@@ -15,7 +16,6 @@ class _AddingPageState extends State<AddingPage> {
 
   final Controller controller = Get.put(Controller());
 
-  int currentValue = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -27,13 +27,38 @@ class _AddingPageState extends State<AddingPage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Card(
-            margin: EdgeInsets.all(15),
-            elevation: 3,
-            child: weightCard(),
+          SizedBox(
+            height: 100,
+            width: double.infinity,
+            child: Card(
+              margin: EdgeInsets.all(15),
+              elevation: 3,
+              child: weightCard(),
+            ),
           ),
-          Card(
-            child: Text("datetime"),
+          SizedBox(
+            height: 100,
+            width: double.infinity,
+            child: GestureDetector(
+              onTap: () async {
+                DateTime? temp = await showDatePicker(
+                    context: context,
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime(2000),
+                    lastDate: DateTime(2100),
+                );
+
+                if(temp != null){
+                  controller.dateTime.value = temp;
+                }
+
+              },
+              child: Card(
+                elevation: 3,
+                margin: EdgeInsets.all(15),
+                child: datePickerCard(),
+              ),
+            ),
           ),
           Card(
             child: Text("note"),
@@ -58,10 +83,10 @@ class _AddingPageState extends State<AddingPage> {
                 itemCount: 3,
                 minValue: 0,
                 maxValue: 200,
-                value: controller.weight,
+                value: controller.weight.value,
                 onChanged: (value){
                   setState(() {
-                    controller.weight = value;
+                    controller.setWeight(value);
                   });
                 },
                 decoration: BoxDecoration(
@@ -72,6 +97,18 @@ class _AddingPageState extends State<AddingPage> {
               Icon(Icons.arrow_drop_up),
             ],
           ),
+        ],
+      ),
+    );
+  }
+
+  Widget datePickerCard() {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Obx(() => Text(DateFormat('EEE,MMM,d').format(controller.dateTime.value),style: TextStyle(fontSize: 15),),)
         ],
       ),
     );

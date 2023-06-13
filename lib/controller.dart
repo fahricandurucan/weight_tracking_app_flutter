@@ -1,11 +1,14 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 import 'model/record_model.dart';
 
 class Controller extends GetxController{
 
-  int weight = 0;
+  RxInt weight = 0.obs;
+
+  Rx<DateTime> dateTime = DateTime.now().obs;
 
   var recordList = <Record>[
     // Record(weight: 70, dateTime: DateTime.now(),note: "fahrşcan"),
@@ -28,6 +31,10 @@ class Controller extends GetxController{
         recordList.removeAt(i);
       }
     }
+  }
+
+  void setWeight(int value){
+    weight.value = value;
   }
 
 
