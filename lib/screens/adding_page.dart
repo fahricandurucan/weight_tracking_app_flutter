@@ -17,6 +17,17 @@ class _AddingPageState extends State<AddingPage> {
   final Controller controller = Get.put(Controller());
 
 
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    controller.setWeight(0);
+    controller.dateTime.value = DateTime.now();
+
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,7 +97,7 @@ class _AddingPageState extends State<AddingPage> {
                 value: controller.weight.value,
                 onChanged: (value){
                   setState(() {
-                    controller.setWeight(value);
+                    controller.setWeight(value);   // weight  getx e bağlanamadı
                   });
                 },
                 decoration: BoxDecoration(
