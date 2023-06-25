@@ -23,7 +23,6 @@ class _HistoryPageState extends State<HistoryPage> {
         actions: [
           IconButton(
               onPressed: (){
-                c.addNewRecord(5,DateTime.now());
               },
               icon: Icon(Icons.favorite)),
         ],

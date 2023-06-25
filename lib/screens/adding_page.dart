@@ -72,8 +72,12 @@ class _AddingPageState extends State<AddingPage> {
             ),
           ),
           Card(
+            elevation: 3,
+            margin: EdgeInsets.all(15),
             child: Text("note"),
           ),
+
+          saveButton(),
 
         ],
       ),
@@ -121,6 +125,23 @@ class _AddingPageState extends State<AddingPage> {
         children: [
           Obx(() => Text(DateFormat('EEE,MMM,d').format(controller.dateTime.value),style: TextStyle(fontSize: 15),),)
         ],
+      ),
+    );
+  }
+
+  Widget saveButton() {
+    return ElevatedButton(
+      onPressed: (){
+          controller.addNewRecord(controller.weight.value, controller.dateTime.value);
+          Get.snackbar("Kayıt", "Kilo kaydınız kaydedildi",
+            snackPosition: SnackPosition.BOTTOM,
+            backgroundColor: Colors.green,
+            margin: EdgeInsets.all(15),
+            icon: Icon(Icons.thumb_up,color: Colors.white,),
+          );
+        },
+      child: Container(
+        child: Text("Save"),
       ),
     );
   }
