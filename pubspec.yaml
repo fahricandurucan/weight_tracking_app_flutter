@@ -35,7 +35,7 @@ dependencies:
   intl: ^0.18.1
   uuid: ^3.0.7
   numberpicker: ^2.1.2
-  fl_chart: ^0.55.1
+  fl_chart: ^0.63.0
 
 
   # The following adds the Cupertino Icons font to your application.

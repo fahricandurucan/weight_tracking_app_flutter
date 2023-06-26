@@ -37,5 +37,32 @@ class Controller extends GetxController{
     weight.value = value;
   }
 
+  int maxWeigth(){
+    int max = 0;
+    for(int i = 0; i<recordList.length;i++){
+      if(recordList[i].weight > max){
+        max = recordList[i].weight;
+      }
+    }
+
+    print("MAX"+max.toString());
+
+
+    return max;
+  }
+
+  int minWeigth() {
+    int min = 1000;
+    for (int i = 0; i < recordList.length; i++) {
+      if (recordList[i].weight < min) {
+        min = recordList[i].weight;
+      }
+    }
+
+    print("MİN = " + min.toString());
+
+
+    return min;
+  }
 
 }
